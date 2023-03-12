@@ -50,5 +50,22 @@ print(f" Сортированный список: {sorted(listJoin)} ")
 # Напишите программу для нахождения максимального числа ягод, которое может собрать за один заход собирающий модуль, 
 # находясь перед некоторым кустом заданной во входном файле грядки.
 
+n = int(input("Введите количество кустов на грядке (больше 3): "))
 
+print("Количество ягод по кустам: ")
 
+numBerries = []
+
+for i in range(0, n):
+    numBerries.append(random.randrange(0, 10))
+
+print(numBerries)
+
+sum = numBerries[0]
+max = numBerries[0]
+for i in range(n):
+    sum = numBerries[i - 2] + numBerries[i - 1] + numBerries[i]
+    if sum > max:
+        max = sum
+
+print(f"Максимальное количество ягод: {max}")
